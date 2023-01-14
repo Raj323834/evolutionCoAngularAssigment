@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { UppercaseComponent } from './views/uppercase/uppercase/uppercase.component';
 import { UsercomponentComponent } from './views/usercomponent/usercomponent.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { UsercomponentComponent } from './views/usercomponent/usercomponent.comp
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
     
   ],
   providers: [],
