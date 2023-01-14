@@ -1,0 +1,7 @@
+<h4>Create a directive which transform text to uppercase on OnChange event (directive needs apply for input text element).</h4><br>
+<h5>Enter text</h5><br>
+
+
+<input placeholder="enter here text" [(ngModel)]="inputvalue" (ngModelChange)="inputvalue = $event.toUpperCase()"> <br><br>
+
+<h6>Output here :- </h6>{{inputvalue}}
