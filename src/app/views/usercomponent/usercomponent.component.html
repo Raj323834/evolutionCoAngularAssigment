@@ -1,25 +1,83 @@
 <h3>Todo Components</h3>
+<button class="btn btn-primary" (click)="CreateAlertModal()">Create New</button>
 
-<table  class="table table-striped">
+<table class="table table-striped">
     <thead>
         <tr>
-          <th scope="col ">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Gender</th>
-          <th scope="col">Status</th>
-          <th scope="col">Action</th>
+            <th scope="col ">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
 
 
         </tr>
-      </thead>
+    </thead>
     <tbody class="col">
         <tr *ngFor="let item of items">
-          <td *ngFor="let header of headers">
-            {{item[header]}}
-          </td>
-          <td><button class="btn btn-danger" (click)="deleteUserDetails()">Action</button></td>
+            <td *ngFor="let header of headers">
+                {{item[header]}}
+            </td>
+            <td><button class="btn btn-danger" (click)="deleteUserDetails()">Action</button></td>
         </tr>
-      </tbody>
-   
-  </table>
+    </tbody>
+
+</table>
+
+
+<div class="modal" [style.display]="showAlertModal ? 'block' : 'none'">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <p style="white-space: pre-wrap">{{alert}}</p>
+                <br>
+                <button type="button" class="btn btn-primary me-md-3" (click)="closeAlertModal()">OK</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" [style.display]="createNew ? 'block' : 'none'">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <h2>Create New User</h2><br>
+                <div class="row">
+                    <div class="col">
+                        <label>User Id</label>
+                        <input type="text" [(ngModel)]="id" class="form">
+                    </div>
+                    <div class="col">
+                        <label>Name</label>
+                        <input type="text" [(ngModel)]="name" class="form">
+                    </div>
+                   
+                </div><br>
+                <div class="row">
+                    <div class="col">
+                        <label>email Id</label>
+                        <input type="text" [(ngModel)]="email" class="form">
+                    </div>
+                    <div class="col">
+                        <label>Gender</label>
+                        <select [(ngModel)]="gender">
+                            <option value="male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                </div><br>
+                <br>
+                <button type="button" class="btn btn-primary me-md-3" (click)="createUserDetails()">OK</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>

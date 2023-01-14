@@ -26,8 +26,8 @@ httpGetWithHeader(url: String, urlParam: String, queryParam: any, ipAddress: str
         }))
 }
 
-httpPostWithHeader(url: String, urlParam: String, bodyParams: any, ipAddress: string, userName: string, timestamp: string) {
-    const headers = this.setHeaders(userName, ipAddress, timestamp);
+httpPostWithHeader(url: String, urlParam: String, bodyParams: any, ipAddress: string, Authorization: string, timestamp: string) {
+    const headers = this.setHeaders(Authorization, ipAddress, timestamp);
 
     return this.http.post<any>(`${environment.apiUrl}${url}${urlParam}`, bodyParams, { headers: headers })
         .pipe(map(x => {
@@ -35,8 +35,8 @@ httpPostWithHeader(url: String, urlParam: String, bodyParams: any, ipAddress: st
         }))
 }
 
-httpPutWithHeader(url: String, urlParam: String, bodyParams: any, ipAddress: string, userName: string, timestamp: string) {
-    const headers = this.setHeaders(userName, ipAddress, timestamp);
+httpPutWithHeader(url: String, urlParam: String, bodyParams: any, ipAddress: string, Authorization: string, timestamp: string) {
+    const headers = this.setHeaders(Authorization, ipAddress, timestamp);
 
     return this.http.put<any>(`${environment.apiUrl}${url}${urlParam}`, bodyParams, { headers: headers })
         .pipe(map(x => {
@@ -44,8 +44,8 @@ httpPutWithHeader(url: String, urlParam: String, bodyParams: any, ipAddress: str
         }))
 }
 
-httpDeleteWithHeader(url: String, urlParam: String, queryParams: any, ipAddress: string, userName: string, timestamp: string) {
-    const headers = this.setHeaders(userName, ipAddress, timestamp);
+httpDeleteWithHeader(url: String, urlParam: String, queryParams: any, ipAddress: string, Authorization: string, timestamp: string) {
+    const headers = this.setHeaders(Authorization, ipAddress, timestamp);
 
     return this.http.delete<any>(`${environment.apiUrl}${url}${urlParam}`, { params: queryParams, headers: headers })
         .pipe(map(x => {
@@ -60,9 +60,9 @@ httpPostWithoutHeader(url: String, urlParam: String, bodyParams: any) {
         }))
 }
 
-private setHeaders(userName: string, ipAddress: string, timestamp: string) {
+private setHeaders(Authorization: string, ipAddress: string, timestamp: string) {
     return new HttpHeaders()
-        .set('user_name', userName)
+        .set('Authorization', Authorization)
         .set('ip_address', ipAddress)
         .set('timestamp', timestamp);
 }
