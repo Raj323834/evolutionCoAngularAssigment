@@ -1,4 +1,25 @@
-<p>usercomponent works!</p>
+<h3>Todo Components</h3>
+
+<table  class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col ">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
 
 
-<button (click)="getBannerDetails()"></button>
+        </tr>
+      </thead>
+    <tbody class="col">
+        <tr *ngFor="let item of items">
+          <td *ngFor="let header of headers">
+            {{item[header]}}
+          </td>
+          <td><button class="btn btn-danger" (click)="deleteUserDetails()">Action</button></td>
+        </tr>
+      </tbody>
+   
+  </table>
