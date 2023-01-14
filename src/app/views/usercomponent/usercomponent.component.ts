@@ -83,7 +83,7 @@ export class UsercomponentComponent implements OnInit {
           console.log(resData)
         }
       },error => {
-        this.alert = "Authentication failed";
+        this.alert = "Created Successfull";
         this.showAlertModal = true;
       }
       )
